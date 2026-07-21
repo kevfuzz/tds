@@ -1,0 +1,44 @@
+{
+  "name": "content-customer-records",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "sourceRoot": "apps/content-customer-records/src",
+  "tags": ["scope:content"],
+  "targets": {
+    "build": {
+      "executor": "@nx/angular:application",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/apps/content-customer-records",
+        "index": "apps/content-customer-records/src/index.html",
+        "browser": "apps/content-customer-records/src/main.ts",
+        "tsConfig": "apps/content-customer-records/tsconfig.app.json",
+        "assets": [
+          { "glob": "**/*", "input": "apps/content-customer-records/public" }
+        ],
+        "styles": ["apps/content-customer-records/src/styles.css"]
+      },
+      "configurations": {
+        "production": { "outputHashing": "all" },
+        "development": { "optimization": false, "sourceMap": true }
+      },
+      "defaultConfiguration": "production"
+    },
+    "serve": {
+      "executor": "@nx/angular:dev-server",
+      "options": {
+        "buildTarget": "content-customer-records:build",
+        "port": 4201,
+        "proxyConfig": "apps/content-customer-records/proxy.conf.js"
+      },
+      "configurations": {
+        "development": { "buildTarget": "content-customer-records:build:development" }
+      },
+      "defaultConfiguration": "development"
+    },
+    "test": {
+      "executor": "@nx/vite:test",
+      "options": { "config": "apps/content-customer-records/vite.config.ts" }
+    }
+  }
+}

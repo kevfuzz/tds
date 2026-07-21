@@ -1,0 +1,7 @@
+/*
+ * @rwp2/ui/tailwind.css — the shell's Tailwind v4 entrypoint. Pulls in Tailwind
+ * and binds the RWP2 preset (which maps utilities to the --p-* tokens). Apps that
+ * want Tailwind import this; apps that don't just import tokens.css.
+ */
+@import 'tailwindcss';
+@config './tailwind-preset.js';

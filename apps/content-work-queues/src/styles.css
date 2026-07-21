@@ -1,0 +1,8 @@
+@import '@rwp2/ui/tokens.css';
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  background: var(--p-content-background);
+  color: var(--p-text-color);
+}

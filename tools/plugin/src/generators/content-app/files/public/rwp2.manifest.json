@@ -1,0 +1,18 @@
+{
+  "contractVersion": 1,
+  "id": "<%= name %>",
+  "name": "<%= displayName %>",
+  "version": "1.0.0",
+  "entryUrl": "./",
+  "icon": "<%= icon %>",
+  "integration": "sdk",
+  "requiredPermissions": ["app.<%= name %>"],
+  "menu": {
+    "static": [
+      { "id": "overview", "label": "Overview", "icon": "pi pi-compass", "group": "registrations",
+        "order": 0, "target": { "appId": "<%= name %>", "path": "/overview" } }
+    ]<% if (customerMenu) { %>,
+    "customerMenuUrl": "/api/<%= name %>/workbench/menu?trn={trn}&persona={persona}"<% } %>
+  },
+  "healthUrl": "/actuator/health"
+}

@@ -1,0 +1,9 @@
+{
+  "name": "@rwp2/desktop",
+  "version": "2026.07.0",
+  "private": true,
+  "main": "main/index.js",
+  "dependencies": {
+    "@rwp2/contracts": "1.0.0"
+  }
+}

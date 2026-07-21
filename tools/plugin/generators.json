@@ -1,0 +1,11 @@
+{
+  "$schema": "../../node_modules/nx/schemas/collection.schema.json",
+  "name": "@rwp2/plugin",
+  "generators": {
+    "content-app": {
+      "factory": "./src/generators/content-app/generator",
+      "schema": "./src/generators/content-app/schema.json",
+      "description": "Scaffold a fully-wired RWP2 content app (manifest, SDK wiring, one routed screen + test)."
+    }
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "name": "contracts",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/contracts/src",
+  "projectType": "library",
+  "tags": ["scope:contracts"],
+  "targets": {
+    "build": {
+      "executor": "@nx/esbuild:esbuild",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/contracts",
+        "main": "libs/contracts/src/index.ts",
+        "tsConfig": "libs/contracts/tsconfig.lib.json",
+        "format": ["esm", "cjs"],
+        "generatePackageJson": true,
+        "declaration": true
+      }
+    },
+    "test": {
+      "executor": "@nx/vite:test",
+      "options": { "config": "libs/contracts/vite.config.ts" }
+    }
+  }
+}

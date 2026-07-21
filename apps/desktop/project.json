@@ -1,0 +1,43 @@
+{
+  "name": "desktop",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/desktop/src",
+  "projectType": "application",
+  "tags": ["scope:desktop"],
+  "targets": {
+    "build": {
+      "executor": "@nx/esbuild:esbuild",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/apps/desktop",
+        "main": "apps/desktop/src/main/index.ts",
+        "additionalEntryPoints": [
+          "apps/desktop/src/preload/shell.preload.ts",
+          "apps/desktop/src/preload/guest.preload.ts"
+        ],
+        "tsConfig": "apps/desktop/tsconfig.app.json",
+        "platform": "node",
+        "format": ["cjs"],
+        "bundle": true,
+        "external": ["electron"],
+        "esbuildOptions": { "outbase": "apps/desktop/src" }
+      }
+    },
+    "serve": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "electron dist/apps/desktop/main/index.js",
+        "parallel": false
+      },
+      "configurations": {
+        "development": {
+          "command": "ELECTRON_START_URL=http://localhost:4200 electron dist/apps/desktop/main/index.js"
+        }
+      }
+    },
+    "test": {
+      "executor": "@nx/vite:test",
+      "options": { "config": "apps/desktop/vite.config.ts" }
+    }
+  }
+}

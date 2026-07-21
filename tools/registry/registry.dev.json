@@ -1,0 +1,8 @@
+{
+  "environment": "dev",
+  "apps": [
+    { "manifestUrl": "http://localhost:4201/rwp2.manifest.json" },
+    { "manifestUrl": "http://localhost:4202/rwp2.manifest.json" },
+    { "manifestUrl": "http://localhost:4203/rwp2.manifest.json" }
+  ]
+}

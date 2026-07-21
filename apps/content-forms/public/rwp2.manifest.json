@@ -1,0 +1,18 @@
+{
+  "contractVersion": 1,
+  "id": "forms",
+  "name": "Forms",
+  "version": "1.0.0",
+  "entryUrl": "./",
+  "icon": "pi pi-file-edit",
+  "integration": "sdk",
+  "requiredPermissions": ["app.forms"],
+  "menu": {
+    "static": [
+      { "id": "vat3", "label": "VAT3 return", "icon": "pi pi-file-edit", "group": "forms",
+        "order": 0, "target": { "appId": "forms", "path": "/vat3" } }
+    ],
+    "customerMenuUrl": "/api/forms/workbench/menu?trn={trn}&persona={persona}"
+  },
+  "healthUrl": "/actuator/health"
+}

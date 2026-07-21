@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json-schema.org/schema",
+  "$id": "Rwp2ContentApp",
+  "title": "RWP2 content app",
+  "description": "Scaffold a fully-wired content app that is compliant with 06 by construction.",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "App id everywhere: project name, manifest id, API prefix. Kebab-case.",
+      "pattern": "^[a-z][a-z0-9-]*$",
+      "x-prompt": "App id (kebab-case, e.g. debt-management)?",
+      "$default": { "$source": "argv", "index": 0 }
+    },
+    "displayName": {
+      "type": "string",
+      "description": "Manifest name and tab labels. Defaults to title-cased name."
+    },
+    "icon": {
+      "type": "string",
+      "description": "PrimeIcons class for the manifest icon.",
+      "pattern": "^pi pi-[a-z-]+$",
+      "default": "pi pi-box"
+    },
+    "port": {
+      "type": "number",
+      "description": "Dev serve port. Defaults to the next free 42xx port."
+    },
+    "backendPort": {
+      "type": "number",
+      "description": "Proxy target for the team's local Java service. Defaults to port + 4000."
+    },
+    "customerMenu": {
+      "type": "boolean",
+      "description": "Include customerMenuUrl in the manifest.",
+      "default": true
+    },
+    "standaloneRepo": {
+      "type": "boolean",
+      "description": "Emit to dist/team-templates instead of apps/, for teams outside the monorepo.",
+      "default": false
+    }
+  },
+  "required": ["name"]
+}

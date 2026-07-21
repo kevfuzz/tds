@@ -1,0 +1,34 @@
+/*
+ * Shell global styles. Tokens + Tailwind come from @rwp2/ui (mandatory for the
+ * shell, 02 §2). The shell itself NEVER scrolls (05 §3) — only inner panels do.
+ */
+@import '@rwp2/ui/tokens.css';
+@import '@rwp2/ui/tailwind.css';
+@import 'primeicons/primeicons.css';
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden; /* fixed, non-scrolling body — the whole point of the workbench */
+  background: var(--p-content-background);
+  color: var(--p-text-color);
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+rwp-root {
+  display: block;
+  height: 100%;
+  width: 100%;
+}
+
+/* Density is a class on <html> driven by the prefs effect in WorkbenchStore. */
+.density-compact {
+  --rwp-row-h: 24px;
+}
+.density-comfortable {
+  --rwp-row-h: 30px;
+}

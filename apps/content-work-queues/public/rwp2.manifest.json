@@ -1,0 +1,18 @@
+{
+  "contractVersion": 1,
+  "id": "work-queues",
+  "name": "Work queues",
+  "version": "1.0.0",
+  "entryUrl": "./",
+  "icon": "pi pi-list-check",
+  "integration": "sdk",
+  "requiredPermissions": ["app.work-queues"],
+  "menu": {
+    "static": [
+      { "id": "my-queue", "label": "My queue", "icon": "pi pi-list-check", "group": "registrations",
+        "order": 0, "target": { "appId": "work-queues", "path": "/my-queue" } }
+    ],
+    "customerMenuUrl": "/api/work-queues/workbench/menu?trn={trn}&persona={persona}"
+  },
+  "healthUrl": "/actuator/health"
+}

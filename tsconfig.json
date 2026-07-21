@@ -1,0 +1,12 @@
+{
+  "extends": "./tsconfig.base.json",
+  "files": [],
+  "references": [
+    { "path": "./libs/contracts" },
+    { "path": "./libs/sdk" },
+    { "path": "./libs/sdk-testing" },
+    { "path": "./libs/ui" },
+    { "path": "./apps/desktop" },
+    { "path": "./apps/shell" }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "name": "@rwp2/sdk-testing",
+  "version": "1.0.0",
+  "description": "RWP2 in-page MockHost (GuestHostApi) and fixtures for unit tests and standalone dev.",
+  "type": "module",
+  "main": "./src/index.ts",
+  "types": "./src/index.ts",
+  "peerDependencies": {
+    "@angular/core": "^21.0.0",
+    "@rwp2/contracts": "^1.0.0"
+  },
+  "peerDependenciesMeta": {
+    "@angular/core": { "optional": true }
+  },
+  "sideEffects": false
+}

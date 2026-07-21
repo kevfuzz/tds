@@ -1,0 +1,12 @@
+{
+  "name": "@rwp2/contracts",
+  "version": "1.0.0",
+  "description": "RWP2 wire contracts: types, zod schemas, IPC channel map. Zero deps beyond zod.",
+  "type": "module",
+  "main": "./src/index.ts",
+  "types": "./src/index.ts",
+  "peerDependencies": {
+    "zod": "^3.24.0"
+  },
+  "sideEffects": false
+}

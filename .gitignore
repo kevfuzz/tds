@@ -1,0 +1,13 @@
+node_modules
+dist
+tmp
+.nx/cache
+.nx/workspace-data
+out
+coverage
+*.log
+.DS_Store
+.angular
+.vite
+vite.config.*.timestamp*
+apps/desktop/state.json

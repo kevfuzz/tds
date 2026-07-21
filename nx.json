@@ -1,0 +1,43 @@
+{
+  "$schema": "./node_modules/nx/schemas/nx-schema.json",
+  "namedInputs": {
+    "default": ["{projectRoot}/**/*", "sharedGlobals"],
+    "production": [
+      "default",
+      "!{projectRoot}/**/?(*.)+(spec|test).[jt]s?(x)?(.snap)",
+      "!{projectRoot}/**/*.spec.ts",
+      "!{projectRoot}/tsconfig.spec.json"
+    ],
+    "sharedGlobals": ["{workspaceRoot}/tsconfig.base.json", "{workspaceRoot}/eslint.config.mjs"]
+  },
+  "targetDefaults": {
+    "build": {
+      "dependsOn": ["^build"],
+      "inputs": ["production", "^production"],
+      "cache": true
+    },
+    "test": {
+      "inputs": ["default", "^production"],
+      "cache": true
+    },
+    "lint": {
+      "inputs": ["default", "{workspaceRoot}/eslint.config.mjs"],
+      "cache": true
+    }
+  },
+  "release": {
+    "projects": ["contracts", "sdk", "sdk-testing", "ui"],
+    "version": {
+      "conventionalCommits": false,
+      "generatorOptions": {
+        "packageRoot": "dist/{projectName}"
+      }
+    },
+    "projectsRelationship": "fixed"
+  },
+  "plugins": [
+    { "plugin": "@nx/vite/plugin", "options": { "testTargetName": "test" } },
+    { "plugin": "@nx/eslint/plugin", "options": { "targetName": "lint" } },
+    { "plugin": "@nx/esbuild/plugin", "options": { "buildTargetName": "build" } }
+  ]
+}

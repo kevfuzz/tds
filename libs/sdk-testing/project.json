@@ -1,0 +1,25 @@
+{
+  "name": "sdk-testing",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/sdk-testing/src",
+  "projectType": "library",
+  "tags": ["scope:sdk-testing"],
+  "targets": {
+    "build": {
+      "executor": "@nx/esbuild:esbuild",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/sdk-testing",
+        "main": "libs/sdk-testing/src/index.ts",
+        "tsConfig": "libs/sdk-testing/tsconfig.lib.json",
+        "format": ["esm", "cjs"],
+        "generatePackageJson": true,
+        "declaration": true
+      }
+    },
+    "test": {
+      "executor": "@nx/vite:test",
+      "options": { "config": "libs/sdk-testing/vite.config.ts" }
+    }
+  }
+}

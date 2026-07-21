@@ -1,0 +1,18 @@
+{
+  "contractVersion": 1,
+  "id": "customer-records",
+  "name": "Customer records",
+  "version": "1.8.0",
+  "entryUrl": "./",
+  "icon": "pi pi-id-card",
+  "integration": "sdk",
+  "requiredPermissions": ["app.customer-records"],
+  "menu": {
+    "static": [
+      { "id": "overview", "label": "Overview", "icon": "pi pi-user", "group": "registrations",
+        "order": 0, "target": { "appId": "customer-records", "path": "/overview" } }
+    ],
+    "customerMenuUrl": "/api/customer-records/workbench/menu?trn={trn}&persona={persona}"
+  },
+  "healthUrl": "/actuator/health"
+}

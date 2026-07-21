@@ -1,0 +1,13 @@
+{
+  "name": "plugin",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "tools/plugin/src",
+  "projectType": "library",
+  "tags": [],
+  "targets": {
+    "test": {
+      "executor": "@nx/vite:test",
+      "options": { "config": "tools/plugin/vite.config.ts" }
+    }
+  }
+}

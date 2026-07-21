@@ -1,0 +1,44 @@
+{
+  "name": "content-work-queues",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "sourceRoot": "apps/content-work-queues/src",
+  "tags": ["scope:content"],
+  "targets": {
+    "build": {
+      "executor": "@nx/angular:application",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/apps/content-work-queues",
+        "index": "apps/content-work-queues/src/index.html",
+        "browser": "apps/content-work-queues/src/main.ts",
+        "tsConfig": "apps/content-work-queues/tsconfig.app.json",
+        "assets": [
+          { "glob": "**/*", "input": "apps/content-work-queues/public" }
+        ],
+        "styles": ["apps/content-work-queues/src/styles.css"]
+      },
+      "configurations": {
+        "production": { "outputHashing": "all" },
+        "development": { "optimization": false, "sourceMap": true }
+      },
+      "defaultConfiguration": "production"
+    },
+    "serve": {
+      "executor": "@nx/angular:dev-server",
+      "options": {
+        "buildTarget": "content-work-queues:build",
+        "port": 4202,
+        "proxyConfig": "apps/content-work-queues/proxy.conf.js"
+      },
+      "configurations": {
+        "development": { "buildTarget": "content-work-queues:build:development" }
+      },
+      "defaultConfiguration": "development"
+    },
+    "test": {
+      "executor": "@nx/vite:test",
+      "options": { "config": "apps/content-work-queues/vite.config.ts" }
+    }
+  }
+}

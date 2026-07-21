@@ -1,0 +1,11 @@
+{
+  "name": "@rwp2/plugin",
+  "version": "0.0.1",
+  "private": true,
+  "type": "commonjs",
+  "description": "RWP2 workspace generators. `content-app` scaffolds a compliant content app (06/08).",
+  "generators": "./generators.json",
+  "dependencies": {
+    "@nx/devkit": "latest"
+  }
+}

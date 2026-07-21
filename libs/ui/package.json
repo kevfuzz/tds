@@ -1,0 +1,23 @@
+{
+  "name": "@rwp2/ui",
+  "version": "1.0.0",
+  "description": "RWP2 shared UI: tokens.css, Tailwind v4 preset, PrimeNG Aura preset (Emerald/Zinc), dumb components.",
+  "type": "module",
+  "main": "./src/index.ts",
+  "types": "./src/index.ts",
+  "exports": {
+    ".": {
+      "types": "./src/index.ts",
+      "default": "./src/index.ts"
+    },
+    "./tokens.css": "./src/tokens.css",
+    "./tailwind.css": "./src/tailwind.css",
+    "./tailwind-preset.js": "./src/tailwind-preset.js"
+  },
+  "peerDependencies": {
+    "@angular/core": "^21.0.0",
+    "@primeng/themes": "^21.0.0",
+    "@rwp2/contracts": "^1.0.0"
+  },
+  "sideEffects": false
+}
